@@ -5,37 +5,22 @@ import BuildControl from '../BuildControl';
 const BuildControls = (props) => {
   return (
     <div className={css.BuildControls}>
-      <p style={{ fontSize: '24px' }}>
+      <p>
         Бургерын үнэ: <strong>{props.totalPrice}₮</strong>
       </p>
-      <BuildControl
-        disabledIngredients={props.disabledIngredients}
-        type='salad'
-        name={props.ingredientNames}
-        addIngredient={props.addIngredient}
-        removeIngredient={props.removeIngredient}
-      />
-      <BuildControl
-        disabledIngredients={props.disabledIngredients}
-        type='bacon'
-        name={props.ingredientNames}
-        addIngredient={props.addIngredient}
-        removeIngredient={props.removeIngredient}
-      />
-      <BuildControl
-        disabledIngredients={props.disabledIngredients}
-        type='cheese'
-        name={props.ingredientNames}
-        addIngredient={props.addIngredient}
-        removeIngredient={props.removeIngredient}
-      />
-      <BuildControl
-        disabledIngredients={props.disabledIngredients}
-        type='meat'
-        name={props.ingredientNames}
-        addIngredient={props.addIngredient}
-        removeIngredient={props.removeIngredient}
-      />
+      {Object.keys(props.ingredientNames).map((el) => (
+        <BuildControl
+          key={el}
+          disabledIngredients={props.disabledIngredients}
+          type={el}
+          name={props.ingredientNames}
+          addIngredient={props.addIngredient}
+          removeIngredient={props.removeIngredient}
+        />
+      ))}
+      <button disabled={props.disabled} className={css.OrderButton}>
+        ЗАХИАЛАХ
+      </button>
     </div>
   );
 };

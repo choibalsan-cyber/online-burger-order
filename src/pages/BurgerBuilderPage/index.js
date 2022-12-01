@@ -26,6 +26,7 @@ class BurgerBuilderPage extends Component {
       meat: 0,
     },
     totalPrice: 1000,
+    purchasing: false,
   };
 
   addIngredient = (type) => {
@@ -34,7 +35,11 @@ class BurgerBuilderPage extends Component {
     // newIngredients = {salad: 0, meat: 0, cheese: 0, bacon: 1}
     const newTotalPrice = this.state.totalPrice + INGREDIENT_PRICES[type];
     newIngredients[type]++;
-    this.setState({ ingredients: newIngredients, totalPrice: newTotalPrice });
+    this.setState({
+      ingredients: newIngredients,
+      totalPrice: newTotalPrice,
+      purchasing: true,
+    });
   };
 
   removeIngredient = (type) => {
@@ -44,7 +49,12 @@ class BurgerBuilderPage extends Component {
       const newTotalPrice = this.state.totalPrice - INGREDIENT_PRICES[type];
 
       newIngredients[type]--;
-      this.setState({ ingredients: newIngredients, totalPrice: newTotalPrice });
+
+      this.setState({
+        ingredients: newIngredients,
+        totalPrice: newTotalPrice,
+        purchasing: newTotalPrice > 1000,
+      });
     }
   };
 
@@ -57,6 +67,7 @@ class BurgerBuilderPage extends Component {
       <div className={css.BurgerBuilderPage}>
         <BurgerImg ingredients={this.state.ingredients} />
         <BuildControls
+          disabled={!this.state.purchasing}
           disabledIngredients={disabledIngredients}
           addIngredient={this.addIngredient}
           removeIngredient={this.removeIngredient}
