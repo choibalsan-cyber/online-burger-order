@@ -10,6 +10,13 @@ const INGREDIENT_NAMES = {
   meat: 'Үхрийн мах',
 };
 
+const INGREDIENT_PRICES = {
+  salad: 150,
+  bacon: 800,
+  cheese: 250,
+  meat: 1500,
+};
+
 class BurgerBuilderPage extends Component {
   state = {
     ingredients: {
@@ -25,22 +32,32 @@ class BurgerBuilderPage extends Component {
     // Ingredients доторх бүх зүйлийг задалж бичнэ
     const newIngredients = { ...this.state.ingredients };
     // newIngredients = {salad: 0, meat: 0, cheese: 0, bacon: 1}
-
+    const newTotalPrice = this.state.totalPrice + INGREDIENT_PRICES[type];
     newIngredients[type]++;
-    this.setState({ ingredients: newIngredients });
+    this.setState({ ingredients: newIngredients, totalPrice: newTotalPrice });
   };
 
   removeIngredient = (type) => {
-    const newIngredients = { ...this.state.ingredients };
-    if (newIngredients[type] > 0) newIngredients[type]--;
-    this.setState({ ingredients: newIngredients });
+    if (this.state.ingredients[type] > 0) {
+      const newIngredients = { ...this.state.ingredients };
+
+      const newTotalPrice = this.state.totalPrice - INGREDIENT_PRICES[type];
+
+      newIngredients[type]--;
+      this.setState({ ingredients: newIngredients, totalPrice: newTotalPrice });
+    }
   };
 
   render() {
+    let disabledIngredients = { ...this.state.ingredients };
+    for (const key in disabledIngredients) {
+      disabledIngredients[key] = disabledIngredients[key] <= 0;
+    }
     return (
       <div className={css.BurgerBuilderPage}>
         <BurgerImg ingredients={this.state.ingredients} />
         <BuildControls
+          disabledIngredients={disabledIngredients}
           addIngredient={this.addIngredient}
           removeIngredient={this.removeIngredient}
           totalPrice={this.state.totalPrice}

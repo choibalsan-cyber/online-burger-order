@@ -4,6 +4,7 @@ const BuildControl = (props) => (
   <div className={css.BuildControl}>
     <div className={css.Label}>{props.name[props.type]}</div>
     <button
+      disabled={props.disabledIngredients[props.type]}
       onClick={() => props.removeIngredient(props.type)}
       className={css.Less}
     >
