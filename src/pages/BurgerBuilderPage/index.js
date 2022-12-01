@@ -2,6 +2,7 @@ import { Component } from 'react';
 import BuildControls from '../../components/BuildControls';
 import BurgerImg from '../../components/BurgerImg';
 import Modal from '../../components/general/Modal';
+import OrderSummary from '../../components/OrderSummary';
 import css from './style.module.css';
 
 const INGREDIENT_NAMES = {
@@ -66,7 +67,13 @@ class BurgerBuilderPage extends Component {
     }
     return (
       <div className={css.BurgerBuilderPage}>
-        <Modal>Yu bna</Modal>
+        <Modal>
+          <OrderSummary
+            ingredientNames={INGREDIENT_NAMES}
+            ingredients={this.state.ingredients}
+            totalPrice={this.state.totalPrice}
+          />
+        </Modal>
         <BurgerImg ingredients={this.state.ingredients} />
         <BuildControls
           disabled={!this.state.purchasing}
