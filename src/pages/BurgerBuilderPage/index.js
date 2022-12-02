@@ -32,8 +32,8 @@ class BurgerBuilderPage extends Component {
     confirmOrder: false,
   };
 
-  showWindow = () => this.setState({ confirmOrder: true });
-  closeWindow = () => this.setState({ confirmOrder: false });
+  open = () => this.setState({ confirmOrder: true });
+  close = () => this.setState({ confirmOrder: false });
 
   addIngredient = (type) => {
     // Ingredients доторх бүх зүйлийг задалж бичнэ
@@ -71,7 +71,7 @@ class BurgerBuilderPage extends Component {
     }
     return (
       <div className={css.BurgerBuilderPage}>
-        <Modal closeWindow={this.closeWindow} show={this.state.confirmOrder}>
+        <Modal close={this.close} show={this.state.confirmOrder}>
           <OrderSummary
             ingredientNames={INGREDIENT_NAMES}
             ingredients={this.state.ingredients}
@@ -80,7 +80,7 @@ class BurgerBuilderPage extends Component {
         </Modal>
         <BurgerImg ingredients={this.state.ingredients} />
         <BuildControls
-          showWindow={this.showWindow}
+          open={this.open}
           disabled={!this.state.purchasing}
           disabledIngredients={disabledIngredients}
           addIngredient={this.addIngredient}

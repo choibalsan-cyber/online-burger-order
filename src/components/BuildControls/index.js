@@ -19,7 +19,7 @@ const BuildControls = (props) => {
         />
       ))}
       <button
-        onClick={props.showWindow}
+        onClick={props.open}
         disabled={props.disabled}
         className={css.OrderButton}
       >

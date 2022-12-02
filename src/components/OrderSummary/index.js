@@ -10,7 +10,7 @@ const OrderSummary = (props) => (
       ))}
     </ul>
     <p>
-      Нийт үнэ: <strong>{props.totalPrice}</strong>
+      <strong>Захиалгын дүн: {props.totalPrice}₮</strong>
     </p>
     <p>Цаашаа үргэлжлүүлэх үү?</p>
   </div>
