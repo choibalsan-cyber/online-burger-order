@@ -8,15 +8,15 @@ const Sidebar = (props) => {
   if (props.showSidebar) classes = [css.Sidebar, css.Open];
 
   return (
-    <>
-      <Shadow show={props.showSidebar} />
-      <div className={classes.join(' ')}>
+    <div>
+      <Shadow close={props.toggleSidebar} show={props.showSidebar} />
+      <div onClick={props.toggleSidebar} className={classes.join(' ')}>
         <div className={css.Logo}>
           <Logo />
         </div>
         <Menu />
       </div>
-    </>
+    </div>
   );
 };
 

@@ -18,7 +18,10 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Sidebar showSidebar={this.state.showSidebar} />
+        <Sidebar
+          toggleSidebar={this.toggleSidebar}
+          showSidebar={this.state.showSidebar}
+        />
         <Toolbar toggleSidebar={this.toggleSidebar} />
         <main className={css.Content}>
           <BurgerBuilderPage />
