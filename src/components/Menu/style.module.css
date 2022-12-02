@@ -9,13 +9,8 @@
 }
 
 @media(min-width: 500px) {
-    .Menu {
-        display: flex;
+    .Menu {        
         flex-direction: row;
-        margin: 0;
-        padding: 0;
-        list-style: none;
-        align-items: center;
-        height: 100%;
+        
     }
 }

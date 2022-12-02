@@ -10,8 +10,7 @@
     padding: 0 0 0 10px;
     text-decoration: none;
     color: #8f5c2c;
-    margin-bottom: 1rem; 
-     
+    margin-bottom: 1rem;      
 }
 .MenuItem a:hover, 
 .MenuItem a.active,
@@ -32,6 +31,7 @@
         padding: 1rem;
         border-bottom: 4px solid transparent;
         cursor: pointer;
+        margin: 0;
     }
     .MenuItem a:hover, 
     .MenuItem a.active,
