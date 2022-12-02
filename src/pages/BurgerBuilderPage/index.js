@@ -35,6 +35,8 @@ class BurgerBuilderPage extends Component {
   open = () => this.setState({ confirmOrder: true });
   close = () => this.setState({ confirmOrder: false });
 
+  continueOrder = () => alert('Үргэжлүүлж байна');
+
   addIngredient = (type) => {
     // Ingredients доторх бүх зүйлийг задалж бичнэ
     const newIngredients = { ...this.state.ingredients };
@@ -73,6 +75,8 @@ class BurgerBuilderPage extends Component {
       <div className={css.BurgerBuilderPage}>
         <Modal close={this.close} show={this.state.confirmOrder}>
           <OrderSummary
+            continueOrder={this.continueOrder}
+            close={this.close}
             ingredientNames={INGREDIENT_NAMES}
             ingredients={this.state.ingredients}
             totalPrice={this.state.totalPrice}

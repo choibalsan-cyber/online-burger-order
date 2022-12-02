@@ -1,3 +1,4 @@
+import Button from '../general/Button';
 import css from './style.module.css';
 
 const OrderSummary = (props) => (
@@ -13,6 +14,12 @@ const OrderSummary = (props) => (
       <strong>Захиалгын дүн: {props.totalPrice}₮</strong>
     </p>
     <p>Цаашаа үргэлжлүүлэх үү?</p>
+    <Button onClicked={props.close} btnType='Danger' btnName='ТАТГАЛЗАХ' />
+    <Button
+      onClicked={props.continueOrder}
+      btnType='Success'
+      btnName='ҮРГЭЛЖЛҮҮЛЭХ'
+    />
   </div>
 );
 
