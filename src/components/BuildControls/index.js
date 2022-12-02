@@ -18,7 +18,11 @@ const BuildControls = (props) => {
           removeIngredient={props.removeIngredient}
         />
       ))}
-      <button disabled={props.disabled} className={css.OrderButton}>
+      <button
+        onClick={props.showWindow}
+        disabled={props.disabled}
+        className={css.OrderButton}
+      >
         ЗАХИАЛАХ
       </button>
     </div>

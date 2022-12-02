@@ -6,7 +6,7 @@ const OrderSummary = (props) => (
     <p>Таны сонгосон орцууд:</p>
     <ul>
       {Object.entries(props.ingredients).map((el) => (
-        <li>{`${props.ingredientNames[el[0]]} : ${el[1]}`}</li>
+        <li key={el}>{`${props.ingredientNames[el[0]]} : ${el[1]}`}</li>
       ))}
     </ul>
     <p>
