@@ -1,5 +1,6 @@
 import css from './style.module.css';
 import Logo from '../Logo';
+import Menu from '../Menu';
 
 const Toolbar = () => (
   <header className={css.Toolbar}>
@@ -7,7 +8,9 @@ const Toolbar = () => (
     <div className={css.Logo}>
       <Logo />
     </div>
-    <nav>Цэс</nav>
+    <nav>
+      <Menu />
+    </nav>
   </header>
 );
 export default Toolbar;
