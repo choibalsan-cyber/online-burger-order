@@ -4,9 +4,9 @@ import css from './style.module.css';
 const Menu = () => (
   <div>
     <ul className={css.Menu}>
-      <MenuItem active link='/' text='ТӨЛБӨР' />
+      <MenuItem active link='/' text='ШИНЭ ЗАХИАЛГА' />
+      <MenuItem link='/order' text='ЗАХИАЛГУУД' />
       <MenuItem link='/login' text='НЭВТРЭХ' />
-      <MenuItem link='/order' text='ЗАХИАЛГА' />
     </ul>
   </div>
 );

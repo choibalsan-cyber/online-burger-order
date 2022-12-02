@@ -1,9 +1,21 @@
 .Menu {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     margin: 0;
     padding: 0;
     list-style: none;
     align-items: center;
     height: 100%;
+}
+
+@media(min-width: 500px) {
+    .Menu {
+        display: flex;
+        flex-direction: row;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        align-items: center;
+        height: 100%;
+    }
 }

@@ -12,8 +12,11 @@
     align-items: center;
     color: #fff;
     padding: 0 20px;
-    box-sizing: border-box;    
+    box-sizing: border-box;   
 }
-.Logo {
-    height: 100%;
+
+@media(max-width: 768px) {
+    .HideOnMobile {
+        display: none;
+    }
 }
